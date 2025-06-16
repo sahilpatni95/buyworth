@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BuyWorth Calculator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BuyWorth: Is It Worth Your Time?</h1>
+        <form id="calc-form">
+            <label>Item Price (₹): <input type="number" id="price" required></label><br>
+            <label>Your Monthly Salary (₹): <input type="number" id="monthly_salary" required></label><br>
+            <label>Investment Duration (Years): <input type="number" id="years" value="1" required></label><br>
+            <label>Expected Investment Return (%): <input type="number" id="investment_rate" value="8" required></label><br>
+            <button type="submit">Calculate</button>
+            <button type="button" id="reset-btn">Reset</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
