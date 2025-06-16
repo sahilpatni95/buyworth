@@ -1,0 +1,41 @@
+name: Flask CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 📦 Install dependencies
+      run: |
+        pip install flask
+
+    - name: ✅ Check syntax
+      run: |
+        python -m py_compile app.py
+
+    - name: 🐳 (Optional) Build Docker image
+      run: |
+        docker build -t buyworth .
+
+    # Uncomment this section to deploy to Heroku
+    # - name: 🚀 Deploy to Heroku
+    #   uses: akhileshns/heroku-deploy@v3.12.12
+    #   with:
+    #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+    #     heroku_app_name: "your-app-name"
+    #     heroku_email: "you@example.com"
